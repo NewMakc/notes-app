@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #e8e8e8;
+    font-family: 'Roboto', sans-serif;
+}
+
+.notes-block {
+    padding-top: 80px;
+}
+
+.notes-block input,
+.notes-block textarea {
+    box-sizing: border-box;
+    margin: auto;
+    display: block;
+    max-width: 300px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    padding: 10px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.notes-block .search-header {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    top: 0;
+    z-index: 1;
+    background-color: #fb0;
+    width: 100%;
+    height: 50px;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+.search-header input {
+    display: inline-block;
+    outline: none;
+    background: rgba(0, 0, 0, 0.04);;
+    border: none;
+    box-shadow: none;
+    transition: all .3s ease;
+    height: 30px;
+    width: 50%;
+}
+
+.search-header input::placeholder {
+    color: #767676;
+}
+
+.search-header input:focus {
+    background-color: #eeeeee;
+}
+
+.new-note {
+    display: block;
+    margin: auto;
+    max-width: 300px;
+    padding: 10px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.new-note p {
+    text-align: center;
+}
+
+.new-note textarea {
+    box-sizing: border-box;
+    background-color: transparent;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    width: 100%;
+    resize: none;
+}
+
+.new-note textarea#title {
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+.new-note textarea#title::placeholder {
+    color: #767676;
+}
+
+.new-note textarea#text {
+    height: 100px;
+}
+
+.new-note .color-selector {
+    display: flex;
+    justify-content: center;
+}
+
+.new-note .color-selector input[type='radio'] {
+    display: none;
+}
+
+.new-note .color-selector input[type='radio'] + label {
+    display: block;
+    margin: 0 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    box-sizing: border-box;
+    background-color: transparent;
+    transition: all .2s ease;
+}
+
+.new-note .color-selector input[type='radio'].blue + label {
+    border: 3px solid  rgb(128, 216, 255);
+}
+
+.new-note .color-selector input[type='radio'].red + label {
+    border: 3px solid  rgb(255, 138, 128);
+}
+
+.new-note .color-selector input[type='radio'].green + label {
+    border: 3px solid  rgb(204, 255, 144);
+}
+
+.new-note .color-selector input[type='radio'].yellow + label {
+    border: 3px solid  rgb(255, 255, 141);
+}
+
+.new-note .color-selector input[type='radio']:checked.blue + label {
+    background-color: rgb(128, 216, 255);
+}
+
+.new-note .color-selector input[type='radio']:checked.red + label {
+    background-color: rgb(255, 138, 128);
+}
+
+.new-note .color-selector input[type='radio']:checked.green + label {
+    background-color: rgb(204, 255, 144);
+}
+
+.new-note .color-selector input[type='radio']:checked.yellow + label {
+    background-color: rgb(255, 255, 141);
+}
+
+.new-note button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    display: block;
+    margin: auto;
+    height: 30px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.notes-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.single-note {
+    display: inline-block;
+    margin: 10px;
+}
+
+@keyframes noteGenie {
+    0% {
+        width: 0;
+        height: 0;
+    }
+
+    100% {
+        max-width: 400px;
+        max-height: 350px;
+    }
+}
+
+.note {
+    position: relative;
+    border: solid 20px rgba(0, 0, 0, 0);
+    overflow: hidden;
+    display: block;
+    max-width: 400px;
+    max-height: 350px;
+    border-radius: 5px;
+    color: #000;
+    text-decoration: none;
+    transform: scale(1);
+    transition: all .1s ease;
+    background-color: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.note.blue {
+    background-color: rgb(128, 216, 255);
+}
+
+.note.red {
+    background-color: rgb(255, 138, 128);
+}
+
+.note.green {
+    background-color: rgb(204, 255, 144);
+}
+
+.note.yellow {
+    background-color: rgb(255, 255, 141);
+}
+
+.note:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent, 0 2px 15px rgba(0, 0, 0, 0.30);
+}
+
+.note button {
+    padding: 0;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    line-height: 0;
+}
